@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 140 15% 95%; /* Equivalente ao #F1F5F2 */
+    --foreground: 231 61% 11%; /* Equivalente ao #0B102D */
+
+    --border: 214 31% 85%;
+    --input: 214 31% 85%;
+    --ring: 43 40% 42%; /* Gold */
+  }
+
+  .dark {
+    /* Modo Escuro opcional (Baseado no Navy) */
+    --background: 231 61% 11%; /* #0B102D */
+    --foreground: 140 15% 95%; /* #F1F5F2 */
+    
+    --border: 231 30% 20%;
+    --input: 231 30% 20%;
+    --ring: 43 40% 42%;
+  }
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+  
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: var(--font-sans), sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  /* Garante que todos os títulos usem a Via Appia */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading), serif;
+    font-weight: normal; 
+  }
+}
+
+::selection {
+  background-color: #967740; /* Dourado da marca */
+  color: #ffffff;
+}
