@@ -33,16 +33,22 @@ export function FAQ() {
   const whatsappNumber = siteConfig.business.whatsapp.replace(/\D/g, '');
 
   return (
-    <section className="py-24 bg-white relative">
+    <section className="py-24 bg-brand-navy relative overflow-hidden">
+      
+      {/* GRID FINO */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none z-0"></div>
+
+      {/* BOLHAS GIGANTES */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-brand-gold/10 blur-[150px] rounded-full pointer-events-none z-0"></div>
+
       <div className="container mx-auto px-6 max-w-4xl relative z-10">
         
-        {/* Cabeçalho */}
         <div className="text-center mb-16">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl md:text-4xl font-semibold text-brand-navy mb-4 font-heading leading-tight"
+            className="text-3xl md:text-4xl font-semibold text-brand-light mb-4 font-heading leading-tight"
           >
             Respostas para suas <span className="text-brand-gold italic">perguntas jurídicas</span>.
           </motion.h2>
@@ -51,13 +57,12 @@ export function FAQ() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-brand-slate font-light"
+            className="text-brand-light/70 font-light"
           >
             Informação clara e objetiva para ajudar você a dar o primeiro passo com segurança.
           </motion.p>
         </div>
 
-        {/* Lista de Dúvidas */}
         <div className="space-y-4">
           {faqs.map((faq, index) => (
             <motion.div 
@@ -66,19 +71,19 @@ export function FAQ() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="bg-brand-light rounded-sm border border-brand-gold/10 overflow-hidden transition-all hover:border-brand-gold/30"
+              className="bg-white/5 backdrop-blur-lg rounded-xl border border-white/10 overflow-hidden transition-all hover:border-brand-gold/50 shadow-[0_4px_20px_rgba(0,0,0,0.3)]"
             >
               <button
-                className="w-full flex items-center justify-between p-6 text-left cursor-pointer"
+                className="w-full flex items-center justify-between p-6 text-left cursor-pointer group"
                 onClick={() => setActiveIndex(activeIndex === index ? null : index)}
               >
-                <span className="font-bold text-brand-navy text-lg pr-8 font-heading">
+                <span className="font-bold text-brand-light text-lg pr-8 font-heading group-hover:text-brand-gold transition-colors">
                   {faq.question}
                 </span>
                 {activeIndex === index ? (
-                  <Minus className="text-brand-gold shrink-0 w-5 h-5" />
+                  <Minus className="text-brand-gold shrink-0 w-5 h-5 drop-shadow-[0_0_5px_rgba(212,175,55,0.8)]" />
                 ) : (
-                  <Plus className="text-brand-navy shrink-0 w-5 h-5" />
+                  <Plus className="text-brand-gold shrink-0 w-5 h-5" />
                 )}
               </button>
 
@@ -90,7 +95,7 @@ export function FAQ() {
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <div className="px-6 pb-6 text-brand-slate leading-relaxed border-t border-brand-gold/10 pt-4 text-sm md:text-base">
+                    <div className="px-6 pb-6 text-brand-light/70 leading-relaxed border-t border-white/10 pt-4 text-sm md:text-base">
                       {faq.answer}
                     </div>
                   </motion.div>
@@ -100,22 +105,24 @@ export function FAQ() {
           ))}
         </div>
 
-        {/* Call to Action Final */}
+        {/* CALL TO ACTION EM VIDRO */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.5 }}
-          className="mt-16 text-center bg-brand-navy p-8 rounded-sm border border-brand-gold/20 shadow-xl"
+          className="mt-16 text-center bg-white/5 backdrop-blur-2xl p-8 rounded-2xl border border-brand-gold/30 shadow-[0_8px_32px_rgba(0,0,0,0.5)] relative overflow-hidden"
         >
-          <p className="text-brand-light font-medium mb-6 text-lg">
+          <div className="absolute inset-0 bg-brand-gold/5 blur-2xl"></div>
+          
+          <p className="text-brand-light font-medium mb-6 text-lg relative z-10">
             Ainda com dúvidas? Fale diretamente com a Dra. Celedonio.
           </p>
           <a 
             href={`https://wa.me/${whatsappNumber}?text=Olá, Dra. Celedonio! Acessei o site e gostaria de tirar uma dúvida sobre o meu caso.`}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-3 bg-brand-gold hover:bg-yellow-600 text-brand-navy px-8 py-4 rounded-sm text-sm font-bold uppercase tracking-widest transition-all shadow-lg hover:shadow-brand-gold/20"
+            className="relative z-10 inline-flex items-center gap-3 bg-brand-gold hover:bg-yellow-500 text-brand-navy px-8 py-4 rounded-xl text-sm font-bold uppercase tracking-widest transition-all shadow-[0_0_20px_rgba(212,175,55,0.4)] hover:shadow-[0_0_30px_rgba(212,175,55,0.6)] hover:scale-105"
           >
             <MessageCircle className="w-5 h-5" />
             Iniciar Atendimento

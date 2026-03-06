@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { Star, Quote } from "lucide-react";
 
-// Depoimentos estratégicos focados nas dores reais dos clientes
 const testimonials = [
   {
     name: "Cliente Anônimo",
@@ -30,7 +29,15 @@ const testimonials = [
 
 export function Testimonials() {
   return (
-    <section className="py-24 bg-brand-light relative overflow-hidden">
+    <section className="py-24 bg-brand-navy relative overflow-hidden">
+      
+      {/* GRID FINO */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none z-0"></div>
+
+      {/* BOLHAS DE LUZ */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-gold/10 blur-[150px] rounded-full pointer-events-none z-0"></div>
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-500/5 blur-[150px] rounded-full pointer-events-none z-0"></div>
+
       <div className="container mx-auto px-6 relative z-10">
         
         {/* Cabeçalho */}
@@ -39,22 +46,22 @@ export function Testimonials() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl md:text-4xl font-semibold text-brand-navy mb-4 font-heading leading-tight"
+            className="text-3xl md:text-4xl font-semibold text-brand-light mb-4 font-heading leading-tight"
           >
-            Avaliações de quem <span className="text-brand-gold italic">confiou em nosso trabalho</span>.
+            Avaliações de quem <span className="text-brand-gold italic drop-shadow-[0_0_8px_rgba(212,175,55,0.4)]">confiou em nosso trabalho</span>.
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-brand-slate font-light"
+            className="text-brand-light/70 font-light"
           >
             Preservamos a identidade dos nossos clientes em respeito ao sigilo profissional, mas os resultados falam por si.
           </motion.p>
         </div>
 
-        {/* Grid de Depoimentos */}
+        {/* Grid de Depoimentos em Vidro */}
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {testimonials.map((testimonial, index) => (
             <motion.div 
@@ -63,30 +70,30 @@ export function Testimonials() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.2 }}
-              className="bg-white p-8 rounded-sm shadow-lg shadow-brand-navy/5 border border-brand-gold/10 relative group hover:border-brand-gold/40 transition-colors flex flex-col h-full"
+              className="bg-white/5 backdrop-blur-2xl p-8 rounded-3xl shadow-[0_8px_32px_rgba(0,0,0,0.3)] border border-white/10 relative group hover:border-brand-gold/50 hover:bg-white/10 transition-all duration-300 flex flex-col h-full overflow-hidden"
             >
-              {/* Ícone de Aspas Fundo */}
-              <Quote className="absolute top-6 right-6 w-12 h-12 text-brand-light -z-0 rotate-12 transition-transform group-hover:rotate-0 group-hover:scale-110 duration-300" />
+              {/* Ícone de Aspas Fundo (Mais sutil no vidro) */}
+              <Quote className="absolute top-6 right-6 w-12 h-12 text-white/5 -z-0 rotate-12 transition-transform group-hover:rotate-0 group-hover:scale-110 duration-300" />
               
               <div className="flex items-center gap-1 mb-6 relative z-10">
                 {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-brand-gold text-brand-gold" />
+                  <Star key={i} className="w-4 h-4 fill-brand-gold text-brand-gold drop-shadow-[0_0_5px_rgba(212,175,55,0.6)]" />
                 ))}
               </div>
               
-              <p className="text-brand-slate text-sm leading-relaxed mb-8 flex-grow relative z-10 italic">
+              <p className="text-brand-light/80 text-sm leading-relaxed mb-8 flex-grow relative z-10 italic">
                 "{testimonial.text}"
               </p>
               
-              <div className="flex items-center gap-4 relative z-10 pt-4 border-t border-brand-light">
-                <div className="w-10 h-10 rounded-sm bg-brand-navy flex items-center justify-center font-bold text-sm text-brand-gold">
+              <div className="flex items-center gap-4 relative z-10 pt-4 border-t border-white/10">
+                <div className="w-10 h-10 rounded-xl bg-white/5 border border-brand-gold/30 flex items-center justify-center font-bold text-sm text-brand-gold shadow-inner">
                   {testimonial.initials}
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-brand-navy font-heading">
+                  <h4 className="text-sm font-bold text-brand-light font-heading">
                     {testimonial.name}
                   </h4>
-                  <p className="text-xs text-brand-slate uppercase tracking-widest mt-0.5">
+                  <p className="text-xs text-brand-gold uppercase tracking-widest mt-0.5">
                     {testimonial.role}
                   </p>
                 </div>
@@ -94,22 +101,6 @@ export function Testimonials() {
             </motion.div>
           ))}
         </div>
-
-        {/* Chamada Discreta do Google */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.8 }}
-          className="mt-16 text-center flex items-center justify-center gap-2"
-        >
-          <span className="text-sm text-brand-slate font-medium">Avaliado com 5 estrelas</span>
-          <div className="flex gap-0.5">
-            {[1, 2, 3, 4, 5].map((i) => (
-              <Star key={i} className="w-3 h-3 fill-brand-gold text-brand-gold" />
-            ))}
-          </div>
-        </motion.div>
 
       </div>
     </section>
