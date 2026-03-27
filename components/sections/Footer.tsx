@@ -34,13 +34,22 @@ export function Footer() {
             </div>
             
             <p className="text-sm leading-relaxed text-brand-light/70">
-              Atendimento especializado, garantindo a proteção do seu patrimônio e da sua liberdade com ética, sigilo e agilidade.
+              Atendimento especializado, garantindo a proteção do seu patrimônio e da sua liberdade com técnica, responsabilidade e agilidade.
             </p>
 
-            <div className="p-4 rounded-sm border border-brand-gold/20 bg-brand-light/5 inline-block">
-              <p className="text-xs font-bold text-brand-light uppercase tracking-widest mb-1">Responsável Técnica</p>
-              <p className="text-sm font-heading text-brand-gold">Dra. Júlia Oliveira Celedônio Castro</p>
-              <p className="text-xs mt-1">OAB/CE nº 56.936</p>
+            {/* Quadro de Advogadas */}
+            <div className="flex flex-col gap-3">
+              <div className="p-4 rounded-sm border border-brand-gold/20 bg-brand-light/5 inline-block w-full">
+                <p className="text-xs font-bold text-brand-light uppercase tracking-widest mb-1">Responsável Técnica</p>
+                <p className="text-sm font-heading text-brand-gold">Dra. Júlia Celedônio</p>
+                <p className="text-xs mt-1">OAB/CE nº 56.936</p>
+              </div>
+              
+              <div className="p-4 rounded-sm border border-brand-gold/20 bg-brand-light/5 inline-block w-full">
+                <p className="text-xs font-bold text-brand-light uppercase tracking-widest mb-1">Advogada Especialista</p>
+                <p className="text-sm font-heading text-brand-gold">Dra. Andressa Celedônio</p>
+                <p className="text-xs mt-1">OAB/CE nº 25.272</p>
+              </div>
             </div>
           </div>
 
@@ -68,6 +77,7 @@ export function Footer() {
                 </a>
               </li>
               <li>
+                {/* Nota: Se houver um Instagram do escritório ou da Dra. Andressa, você pode duplicar este item */}
                 <a href="https://www.instagram.com/juliaceledonio/" target="_blank" rel="noreferrer" className="flex items-center gap-3 hover:text-brand-gold transition-colors group">
                   <div className="w-8 h-8 rounded-sm bg-brand-light/5 flex items-center justify-center border border-brand-gold/10 group-hover:border-brand-gold/40">
                     <Instagram className="w-4 h-4 text-brand-gold" />
