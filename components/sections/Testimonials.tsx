@@ -2,45 +2,18 @@
 
 import { motion } from "framer-motion";
 import { Star, Quote } from "lucide-react";
-
-const testimonials = [
-  {
-    name: "Cliente Anônimo",
-    role: "Direito de Família",
-    text: "O processo de divórcio e inventário era um peso enorme para mim. A equipe atuou com extrema sensibilidade e rapidez, resolvendo de forma amigável o que parecia impossível em poucos meses. O atendimento humanizado fez toda a diferença.",
-    rating: 5,
-    initials: "C. A."
-  },
-  {
-    name: "Cliente Anônimo",
-    role: "Direito Penal",
-    text: "Em um dos momentos mais difíceis e desesperadores da minha vida, encontrei neste escritório um verdadeiro escudo. Atendimento imediato, clareza em cada passo do processo e uma defesa técnica impecável que garantiu a minha liberdade.",
-    rating: 5,
-    initials: "C. A."
-  },
-  {
-    name: "Cliente Anônimo",
-    role: "Direito Cível",
-    text: "Sofri um grande prejuízo patrimonial e estava descrente com a justiça. O Dr. Celedonio e sua equipe foram estratégicos desde a primeira consultoria até a vitória na ação de indenização. Profissionais extremamente éticos e capacitados.",
-    rating: 5,
-    initials: "C. A."
-  }
-];
+import { siteConfig } from "@/config/site-config"; // Importa o config
 
 export function Testimonials() {
   return (
     <section className="py-24 bg-brand-navy relative overflow-hidden">
       
-      {/* GRID FINO */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none z-0"></div>
-
-      {/* BOLHAS DE LUZ */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-gold/10 blur-[150px] rounded-full pointer-events-none z-0"></div>
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-500/5 blur-[150px] rounded-full pointer-events-none z-0"></div>
 
       <div className="container mx-auto px-6 relative z-10">
         
-        {/* Cabeçalho */}
         <div className="text-center max-w-2xl mx-auto mb-16">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
@@ -61,9 +34,9 @@ export function Testimonials() {
           </motion.p>
         </div>
 
-        {/* Grid de Depoimentos em Vidro */}
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {testimonials.map((testimonial, index) => (
+          {/* Iterando sobre os dados do siteConfig */}
+          {siteConfig.testimonials.map((testimonial, index) => (
             <motion.div 
               key={index}
               initial={{ opacity: 0, y: 30 }}
@@ -72,7 +45,6 @@ export function Testimonials() {
               transition={{ delay: index * 0.2 }}
               className="bg-white/5 backdrop-blur-2xl p-8 rounded-3xl shadow-[0_8px_32px_rgba(0,0,0,0.3)] border border-white/10 relative group hover:border-brand-gold/50 hover:bg-white/10 transition-all duration-300 flex flex-col h-full overflow-hidden"
             >
-              {/* Ícone de Aspas Fundo (Mais sutil no vidro) */}
               <Quote className="absolute top-6 right-6 w-12 h-12 text-white/5 -z-0 rotate-12 transition-transform group-hover:rotate-0 group-hover:scale-110 duration-300" />
               
               <div className="flex items-center gap-1 mb-6 relative z-10">

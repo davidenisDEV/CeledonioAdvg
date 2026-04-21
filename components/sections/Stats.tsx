@@ -3,6 +3,15 @@
 import { useEffect, useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { ShieldCheck, MapPin, Scale, Clock } from "lucide-react";
+import { siteConfig } from "@/config/site-config"; // Importa o config
+
+// Mapeamento de Ícones dinâmico para os Stats
+const statIconMap: Record<string, JSX.Element> = {
+  Scale: <Scale className="w-8 h-8 text-brand-gold" />,
+  MapPin: <MapPin className="w-8 h-8 text-brand-gold" />,
+  ShieldCheck: <ShieldCheck className="w-8 h-8 text-brand-gold" />,
+  Clock: <Clock className="w-8 h-8 text-brand-gold" />,
+};
 
 function AnimatedNumber({ from, to, duration = 2, suffix = "" }: { from: number, to: number, duration?: number, suffix?: string }) {
   const [count, setCount] = useState(from);
@@ -27,21 +36,11 @@ function AnimatedNumber({ from, to, duration = 2, suffix = "" }: { from: number,
   return <span ref={ref}>{count}{suffix}</span>;
 }
 
-const statsData = [
-  { icon: <Scale className="w-8 h-8 text-brand-gold" />, value: 3, suffix: "+", title: "Anos de Experiência", description: "Dedicação exclusiva e resolução de conflitos." },
-  { icon: <MapPin className="w-8 h-8 text-brand-gold" />, value: 184, suffix: "", title: "Cidades Cobertas", description: "Atuação em todo o estado do Ceará." },
-  { icon: <ShieldCheck className="w-8 h-8 text-brand-gold" />, value: 100, suffix: "%", title: "Sigilo Absoluto", description: "Ética e descrição total em todos processos." },
-  { icon: <Clock className="w-8 h-8 text-brand-gold" />, value: 24, suffix: "h", title: "Disponibilidade", description: "Acompanhamento urgente em casos penais." }
-];
-
 export function Stats() {
   return (
     <section className="py-24 bg-brand-navy relative overflow-hidden border-y border-white/5">
       
-      {/* GRID FINO ADICIONADO AQUI */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none z-0"></div>
-
-      {/* Brilhos de Fundo para o Glassmorphism reagir */}
       <div className="absolute top-0 left-1/4 w-[400px] h-[400px] bg-brand-gold/10 blur-[120px] pointer-events-none rounded-full z-0"></div>
       <div className="absolute bottom-0 right-1/4 w-[300px] h-[300px] bg-blue-500/5 blur-[100px] pointer-events-none rounded-full z-0"></div>
 
@@ -63,18 +62,19 @@ export function Stats() {
           </motion.div>
 
           <div className="lg:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 w-full">
-            {statsData.map((stat, index) => (
+            {/* Iterando sobre os dados do siteConfig */}
+            {siteConfig.stats.map((stat, index) => (
               <motion.div 
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                // Aplicação do Glassmorphism (bg com opacidade + backdrop-blur)
                 className="flex items-start gap-5 p-6 rounded-xl bg-white/[0.03] backdrop-blur-md border border-white/10 hover:border-brand-gold/40 transition-all duration-300 shadow-[0_8px_32px_rgba(0,0,0,0.2)]"
               >
                 <div className="p-3 bg-brand-navy/80 border border-brand-gold/20 rounded-lg shadow-lg">
-                  {stat.icon}
+                  {/* Renderiza o ícone baseado no nome */}
+                  {statIconMap[stat.iconName]}
                 </div>
                 <div>
                   <h3 className="text-3xl md:text-4xl font-bold text-brand-light font-heading mb-1">
