@@ -10,11 +10,11 @@ const team = [
     name: "Dra. Júlia Celedônio",
     oab: "OAB/CE nº 56.936",
     image: "/img/julia.png",
-    role: "Responsável Técnica",
+    role: "Especialista em Dir. Penal, Empresarial e Família",
     description: "Foco em resoluções estratégicas, combinando o conhecimento profundo da lei com a agilidade que os casos modernos exigem, seja na mediação de conflitos familiares ou na defesa criminal incisiva.",
     badges: [
-      { icon: <Award className="w-5 h-5 text-brand-gold" />, text: "Estratégia Personalizada" },
-      { icon: <BookOpen className="w-5 h-5 text-brand-gold" />, text: "Atualização Constante" }
+      { icon: <Award className="w-5 h-5 text-brand-gold" />, text: "Penal, Empresarial e Família" },
+      { icon: <BookOpen className="w-5 h-5 text-brand-gold" />, text: "Foco em resoluções estratégicas" }
     ]
   },
   {
@@ -22,11 +22,11 @@ const team = [
     name: "Dra. Andressa Celedônio",
     oab: "OAB/CE nº 25.272",
     image: "/img/andressa.png",
-    role: "Especialista em Dir. Imobiliário e Civil",
+    role: "Especialista em Dir. Imobiliário e Consumidor",
     description: "Atendimento jurídico personalizado, com atuação pautada em técnica, responsabilidade e compromisso com cada caso. Atendimento 24h para emergências penais.",
     badges: [
-      { icon: <CheckCircle2 className="w-5 h-5 text-brand-gold" />, text: "Imobiliário, Civil e Empresarial" },
-      { icon: <CheckCircle2 className="w-5 h-5 text-brand-gold" />, text: "Família, Consumidor e Penal" }
+      { icon: <CheckCircle2 className="w-5 h-5 text-brand-gold" />, text: "Imobiliário, Civil e Consumidor" },
+      { icon: <CheckCircle2 className="w-5 h-5 text-brand-gold" />, text: "Foco em resoluções estratégicas" }
     ]
   }
 ];

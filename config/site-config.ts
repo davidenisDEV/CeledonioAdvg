@@ -4,7 +4,7 @@ export const siteConfig = {
   business: {
     name: "Celedonio Advocacia & Consultoria",
     description: "Renovação, esperança e segurança jurídica. Representamos a transição para um futuro melhor na defesa dos seus direitos.",
-    whatsapp: "+5585991466480", 
+    whatsapp: "+5585994195136", 
     email: "contato@celedonioadv.com.br", 
     address: "Fortaleza, CE", 
     mapsLink: "#",
