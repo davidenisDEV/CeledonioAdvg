@@ -59,7 +59,7 @@ export default function RealEstateFunnel() {
           >
             {/* Sugestão: Imagem de arquitetura de alto padrão ou chaves */}
             <img 
-              src="/img/imobiliario-hero.webp" 
+              src="/img/imobiliario.webp" 
               alt="Direito Imobiliário e Patrimonial"
               className="w-full h-full object-cover brightness-[0.4] contrast-[1.1]"
             />

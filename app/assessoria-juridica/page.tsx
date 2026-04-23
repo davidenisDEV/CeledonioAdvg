@@ -60,7 +60,7 @@ export default function CorporateFunnel() {
             className="relative w-full h-full overflow-hidden rounded-bl-[100px] lg:rounded-bl-[250px] border-l border-b border-brand-gold/10 shadow-2xl"
           >
             <img 
-              src="/img/corporate-hero.webp" 
+              src="/img/b2b.webp" 
               alt="Assessoria Jurídica Empresarial"
               className="w-full h-full object-cover brightness-[0.3] contrast-[1.1]"
             />
